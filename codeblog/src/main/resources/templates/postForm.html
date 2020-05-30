@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Blog</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Blog</a>
+    </nav>
+</header>
+
+<section>
+    <div class="container" style="width: 60%; padding-bottom: 30px;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+                <li class="breadcrumb-item" aria-current="page"><a href="/posts">Posts</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Novo Post</li>
+            </ol>
+        </nav>
+
+        <div>
+            <th:block th:include="messageValidate.html"></th:block>
+            <form method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="title" placeholder="Titulo *">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="author" placeholder="Autor *">
+                </div>
+
+                <textarea id="summernote" type="text" class="form-control" name="text" placeholder="Texto *"></textarea>
+
+                <small class="form-text text-muted">(*) Campos Obrigatórios</small>
+
+                <button type="submit" class="btn btn-primary" style="...">Publicar</button>
+                <a href="/posts" class="btn btn-ligth" role="button" style="...">Cancelar</a>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<script>
+
+    $('#summernote').summernote({
+    placeholder: 'Texto *',
+    tabsize: 2,
+    heigth: 300
+    });
+
+</script>
+
+</body>
+
+</html>
